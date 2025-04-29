@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --primary-color: #3a86ff;
+  --primary-color: #adb594;
   --secondary-color: #ff006e;
   --background-color: white;
-  --text-color: #333333;
-  --transition-speed: 0.3s;
+  --text-color: #c0392b;
+  --transition-speed: 0.4s;
+
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
 
 }
 
