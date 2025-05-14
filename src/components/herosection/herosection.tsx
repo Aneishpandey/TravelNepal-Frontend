@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ArrowRight, ChevronDown } from "lucide-react"
-import styles from "./HeroSection.module.css"
+// import  "./HeroSection.module.css"
 
 const Slides = [
   {
@@ -23,6 +23,7 @@ const Slides = [
   },
 ]
 
+
 const POPULAR_DESTINATIONS = [
   "Kathmandu",
   "Pokhara",
@@ -31,6 +32,7 @@ const POPULAR_DESTINATIONS = [
   "Annapurna Base Camp",
   "Mustang",
 ]
+
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0) //check which component is showing first, second or third
@@ -61,17 +63,17 @@ export default function HeroSection() {
   return (
     <section
       ref={slideshowRef}
-      className={styles["hero-section"]}
+      className={"hero-section"}
       aria-label="Discove your next adventure"
       role="region"
     >
       {/* Background Slideshow */}
-      <div className={styles["hero-slide-show"]}>
+      <div className={"hero-slide-show"}>
         {Slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`${styles["hero-slide"]} ${currentSlide === index ? styles["hero-slide-active"] : ""
-              } ${isLoaded ? styles["hero-slide-loaded"] : ""}`}
+            className={`${"hero-slide"} ${currentSlide === index ? "hero-slide-active" : ""
+              } ${isLoaded ? "hero-slide-loaded" : ""}`}
             aria-hidden={currentSlide !== index}
           >
             <Image
@@ -80,52 +82,52 @@ export default function HeroSection() {
               fill
               priority={index === 0}
               sizes="100vw"
-              className={styles["hero-slide-image"]}
+              className={"hero-slide-image"}
               quality={90}
             />
           </div>
         ))}
-        <div className={styles["hero-overlay"]}></div>
+        <div className={"hero-overlay"}></div>
       </div>
 
       {/* Hero Content */}
-      <div className={styles["hero-container"]}>
-        <div className={styles["hero-content"]}>
+      <div className={"hero-container"}>
+        <div className={"hero-content"}>
           {/* heading */}
-          <h1 className={styles["hero-title"]}>Discover your next adventure</h1>
+          <h1 className={"hero-title"}>Discover your next adventure</h1>
 
           {/* subheading */}
-          <p className={styles["hero-description"]}>
+          <p className={"hero-description"}>
             Plan, explore, and create unforgettable journeys with ultimate travel companion
           </p>
 
           {/* search form */}
-          <form onSubmit={handleExplore} className={styles["hero-search-form"]} aria-label="Travel Search">
-            <div className={styles["hero-search-field"]}>
-              <label htmlFor="destination" className={styles["hero-search-label"]}>where to?</label>
+          <form onSubmit={handleExplore} className={"hero-search-form"} aria-label="Travel Search">
+            <div className={"hero-search-field"}>
+              <label htmlFor="destination" className={"hero-search-label"}>where to?</label>
               <input
                 type="text"
                 id="destination"
                 placeholder="Select Destination"
-                className={styles["hero-search-input"]}
+                className={"hero-search-input"}
                 aria-label="Destination"
               />
             </div>
 
-            <button type="submit" className={styles["hero-search-button"]}>
+            <button type="submit" className={"hero-search-button"}>
               Explore
-              <ArrowRight className={styles["hero-button-icon"]} aria-hidden="true" />
+              <ArrowRight className={"hero-button-icon"} aria-hidden="true" />
             </button>
           </form>
 
           {/* Popular Destinations */}
-          <div className={styles["hero-popular"]}>
-            <h2 className={styles["hero-popular-title"]}>Popular Destinations</h2>
-            <div className={styles["hero-popular-tags"]}>
+          <div className={"hero-popular"}>
+            <h2 className={"hero-popular-title"}>Popular Destinations</h2>
+            <div className={"hero-popular-tags"}>
               {POPULAR_DESTINATIONS.map((destination) => (
                 <button
                   key={destination}
-                  className={styles["hero-popular-tag"]}
+                  className={"hero-popular-tag"}
                   onClick={() => {
                     const input = document.getElementById("destination") as HTMLInputElement
                     if (input) input.value = destination
@@ -139,18 +141,18 @@ export default function HeroSection() {
         </div>
 
         {/* scroll indicator */}
-        <div className={styles["hero-scroll"]} onClick={scrollToNextSection}>
-          <span className={styles["hero-scroll-text"]}>Scroll to explore</span>
-          <ChevronDown className={styles["hero-scroll-icon"]} aria-hidden="true" />
+        <div className={"hero-scroll"} onClick={scrollToNextSection}>
+          <span className={"hero-scroll-text"}>Scroll to explore</span>
+          <ChevronDown className={"hero-scroll-icon"} aria-hidden="true" />
         </div>
       </div>
 
       {/* slideshow indicators */}
-      <div className={styles["hero-indicators"]} aria-hidden="true">
+      <div className={"hero-indicators"} aria-hidden="true">
         {Slides.map((_, index) => (
           <button
             key={index}
-            className={`${styles["hero-indicator"]} ${currentSlide === index ? styles["hero-indicator-active"] : ""}`}
+            className={`${"hero-indicator"} ${currentSlide === index ? "hero-indicator-active" : ""}`}
             onClick={() => setCurrentSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
           ></button>
